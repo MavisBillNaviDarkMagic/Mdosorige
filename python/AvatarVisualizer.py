@@ -1,7 +1,9 @@
+from AvatarVoiceController import AvatarVoiceController
+
 class AvatarVisualizer:
     def __init__(self):
         self.enhanced_engine = None
-        self.avatar_controller = AvatarController()
+        self.avatar_controller = AvatarVoiceController()
         self.visual_limits = {
             "style": "champion_only",
             "modifications": "restricted",

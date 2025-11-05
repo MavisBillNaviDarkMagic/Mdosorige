@@ -1,3 +1,5 @@
+from AudioSystem import UltraHDAudioSystem
+
 class AvatarVoiceController:
     def __init__(self):
         self.audio_system = UltraHDAudioSystem()

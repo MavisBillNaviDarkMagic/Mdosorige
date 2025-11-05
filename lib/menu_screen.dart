@@ -1,7 +1,10 @@
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+
+import 'package:my_app/user_list_screen.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -24,7 +27,8 @@ class _MenuScreenState extends State<MenuScreen> {
     });
 
     try {
-      final response = await http.post(Uri.parse('http://127.0.0.1:5000/$endpoint'));
+      final baseUrl = kIsWeb ? 'http://localhost:5000' : 'http://127.0.0.1:5000';
+      final response = await http.post(Uri.parse('$baseUrl/$endpoint'));
       if (response.statusCode == 200) {
         final decoded = json.decode(response.body);
         setState(() {
@@ -65,6 +69,17 @@ class _MenuScreenState extends State<MenuScreen> {
             ElevatedButton(
               onPressed: () => _runScript('integrate'),
               child: const Text('Integrate with System'),
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const UserListScreen(),
+                  ),
+                );
+              },
+              child: const Text('View Users'),
             ),
             const SizedBox(height: 20),
             if (_isRunning)

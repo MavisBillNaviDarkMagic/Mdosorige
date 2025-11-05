@@ -1,9 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'user_service.dart';
 
-class UserListScreen extends StatelessWidget {
+class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
+
+  @override
+  _UserListScreenState createState() => _UserListScreenState();
+}
+
+class _UserListScreenState extends State<UserListScreen> {
+  final UserService _userService = UserService.getInstance();
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUsers();
+  }
+
+  Future<void> _loadUsers() async {
+    try {
+      await _userService.loadUsers();
+      setState(() {
+        _isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        _isLoading = false;
+      });
+      // Handle error
+      print(e); 
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,25 +39,18 @@ class UserListScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('User Directory'),
       ),
-      body: Consumer<UserService>(
-        builder: (context, userService, child) {
-          if (userService.users.isEmpty) {
-            userService.loadUsers();
-            return const Center(child: CircularProgressIndicator());
-          }
-
-          return ListView.builder(
-            itemCount: userService.users.length,
-            itemBuilder: (context, index) {
-              final user = userService.users[index];
-              return ListTile(
-                title: Text(user.name),
-                subtitle: Text(user.email),
-              );
-            },
-          );
-        },
-      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemCount: _userService.users.length,
+              itemBuilder: (context, index) {
+                final user = _userService.users[index];
+                return ListTile(
+                  title: Text(user.name),
+                  subtitle: Text(user.email),
+                );
+              },
+            ),
     );
   }
 }

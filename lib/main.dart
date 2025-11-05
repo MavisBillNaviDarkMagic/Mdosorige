@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_app/menu_screen.dart';
+import 'package:my_app/setup_portal.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MenuScreen(),
+      home: const SetupPortalScreen(),
+      routes: {
+        '/menu': (context) => const MenuScreen(),
+      },
     );
   }
 }

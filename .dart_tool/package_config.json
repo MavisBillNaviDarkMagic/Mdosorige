@@ -51,9 +51,9 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/http-0.13.6",
+      "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/http-1.5.0",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.4"
     },
     {
       "name": "http_parser",
@@ -164,10 +164,16 @@
       "languageVersion": "3.5"
     },
     {
+      "name": "web",
+      "rootUri": "file:///home/user/.pub-cache/hosted/pub.dev/web-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.4"
+    },
+    {
       "name": "my_app",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     }
   ],
   "generator": "pub",

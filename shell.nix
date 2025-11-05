@@ -6,5 +6,6 @@ pkgs.mkShell {
     pkgs.python3Packages.flask
     pkgs.python3Packages.gunicorn
     pkgs.cmake
+    pkgs.jdk
   ];
 }
