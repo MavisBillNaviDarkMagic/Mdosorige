@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Instalador APK</string>
+    <string name="status_ready">Estado: Listo para instalar</string>
+    <string name="status_installing">Estado: Instalando...</string>
+    <string name="status_error">Error: %1$s</string>
+    <string name="install_button">Instalar APK</string>
+    <string name="permission_denied">Permiso denegado</string>
+</resources>
