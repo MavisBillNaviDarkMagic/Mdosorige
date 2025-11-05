@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:my_app/menu_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,15 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'MDOS Setup',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello World'),
-        ),
-      ),
+      home: const MenuScreen(),
     );
   }
 }
